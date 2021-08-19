@@ -6,6 +6,7 @@ const $resultImage = document.querySelector('.result-image');
 const $timer = document.querySelector('.timer');
 const $endImage = document.querySelector('.end-image');
 const RESTART = 'Restart';
+const audio = new Audio('./music/inspire.mp3');
 let timerId;
 let countNumber = 0;
 let sameCard = [];
@@ -14,7 +15,6 @@ let filpedCheck = [];
 let cilckable = false;
 let buttonClickable = true;
 let isWin = false;
-let player;
 
 $startButton.addEventListener('click', function () {
   if (!buttonClickable) return;
@@ -25,16 +25,8 @@ $startButton.addEventListener('click', function () {
   buttonClickable = false;
   shuffleCard();
   $resultImage.style.display = 'none';
-  player.playVideo();
+  audio.play();
 });
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '0',
-    width: '0',
-    videoId: '-HHlHLBxqnc'
-  });
-}
 
 function timer() {
   let leftTime = 30;
@@ -122,7 +114,8 @@ function clickImage(e) {
 
 function showResult() {
   clearInterval(timerId);
-  player.stopVideo();
+  audio.pause();
+  audio.currentTime = 0;
   cilckable = false;
   buttonClickable = true;
   $startButton.textContent = RESTART;
