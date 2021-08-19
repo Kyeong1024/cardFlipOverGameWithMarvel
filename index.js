@@ -80,7 +80,7 @@ function shuffleCard() {
   setTimeout(() => {
     $frontImage.forEach((frontImage) => frontImage.style.visibility = 'visible');
     timer();
-  }, 1500);
+  }, 2000);
 }
 
 function clickImage(e) {
