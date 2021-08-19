@@ -1,0 +1,59 @@
+#card-game {
+  width: 400px;
+  height: 650px;
+  border: 1px solid white;
+  margin: 0 auto;
+}
+.row {
+  width: 100%;
+  height: 20%;
+  flex-direction: row;
+}
+.cell {
+  width: 25%;
+  height: 100%;
+  float: left;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.front-card, .back-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: fill;
+  border: 1px solid white;
+  position: absolute;
+}
+
+.end-image {
+  width: 400px;
+  height: 650px;
+  border-radius: 10px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.result-image {
+  text-align: center;
+}
+
+.game-header {
+  text-align: center;
+}
+
+.start-button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #3D087B;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.start-button:hover {
+  background-color: #C6B4CE;
+  color: black;
+}
