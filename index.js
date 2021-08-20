@@ -7,6 +7,18 @@ const $timer = document.querySelector('.timer');
 const $endImage = document.querySelector('.end-image');
 const RESTART = 'Restart';
 const audio = new Audio('./music/inspire.mp3');
+const Images = [
+  'blackwidow',
+  'captainamerica',
+  'deadpool',
+  'doctorstrange',
+  'groot',
+  'hulk',
+  'ironman',
+  'thanos',
+  'spiderman',
+  'thor'
+];
 let timerId;
 let countNumber = 0;
 let sameCard = [];
@@ -42,17 +54,6 @@ function timer() {
 
 function shuffleCard() {
   const shuffle = [];
-  const Images = [
-    'blackwidow',
-    'captainamerica',
-    'deadpool',
-    'doctorstrange',
-    'groot',
-    'hulk',
-    'ironman',
-    'thanos',
-    'spiderman',
-    'thor'];
   const copyImages = Images.concat(Images);
 
   for (let i = 0; 0 < copyImages.length; i++) {
@@ -61,7 +62,7 @@ function shuffleCard() {
     shuffle.push(randomImage);
   }
 
-  $cells.forEach(function (cell) {
+  $cells.forEach(function (cell, i) {
     const frontImage = document.createElement('img');
     const backImage = document.createElement('img');
     frontImage.className = 'front-card';
@@ -72,15 +73,16 @@ function shuffleCard() {
     countNumber++;
     cell.appendChild(backImage);
     cell.appendChild(frontImage);
+    setTimeout(() => {
+      frontImage.style.visibility = 'hidden'
+    }, 1000 + 100 * i);
     cell.addEventListener('click', clickImage);
   });
-
   const $frontImage = document.querySelectorAll('.front-card');
-  $frontImage.forEach((frontImage) => frontImage.style.visibility = 'hidden');
   setTimeout(() => {
     $frontImage.forEach((frontImage) => frontImage.style.visibility = 'visible');
     timer();
-  }, 2000);
+  }, 4500);
 }
 
 function clickImage(e) {
@@ -104,7 +106,7 @@ function clickImage(e) {
     }
   }
 
-  if (sameCard.length === 10) {
+  if (sameCard.length === Images.length) {
     setTimeout(() => {
       isWin = true;
       showResult();
