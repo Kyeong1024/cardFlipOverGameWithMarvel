@@ -37,6 +37,7 @@ $startButton.addEventListener('click', function () {
   buttonClickable = false;
   shuffleCard();
   $resultImage.style.display = 'none';
+  $cardGameFrame.style.display = 'block';
   audio.play();
 });
 
