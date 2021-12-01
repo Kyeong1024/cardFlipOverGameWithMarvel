@@ -1,4 +1,5 @@
 //haha i changed
+//++ i changed again
 const $cells = document.querySelectorAll('.cell');
 const $message = document.querySelector('.message');
 const $startButton = document.querySelector('.start-button');
